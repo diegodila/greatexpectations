@@ -15,25 +15,25 @@ config_version: 3.0
 # add a new datasource. Read more at https://docs.greatexpectations.io/en/latest/reference/core_concepts/datasource.html
 datasources:
   my_datasource:
+    execution_engine:
+      module_name: great_expectations.execution_engine
+      class_name: SparkDFExecutionEngine
+    class_name: Datasource
+    module_name: great_expectations.datasource
     data_connectors:
       default_inferred_data_connector_name:
+        base_directory: ../data_csv
+        class_name: InferredAssetFilesystemDataConnector
+        module_name: great_expectations.datasource.data_connector
         default_regex:
           group_names:
             - data_asset_name
           pattern: (.*)
-        class_name: InferredAssetFilesystemDataConnector
-        base_directory: ../data_csv
-        module_name: great_expectations.datasource.data_connector
       default_runtime_data_connector_name:
-        batch_identifiers:
-          - default_identifier_name
         class_name: RuntimeDataConnector
         module_name: great_expectations.datasource.data_connector
-    class_name: Datasource
-    execution_engine:
-      module_name: great_expectations.execution_engine
-      class_name: SparkDFExecutionEngine
-    module_name: great_expectations.datasource
+        batch_identifiers:
+          - default_identifier_name
 
 # This config file supports variable substitution which enables: 1) keeping
 # secrets out of source control & 2) environment-based configuration changes
@@ -120,5 +120,5 @@ data_docs_sites:
 
 anonymous_usage_statistics:
   enabled: true
-  data_context_id: eb6c1a16-2299-4280-80be-3e35a5c5a184
+  data_context_id: fd67e00d-5309-4d84-8cd1-baf9be2a435c
 notebooks:

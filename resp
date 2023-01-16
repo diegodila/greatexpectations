@@ -1,0 +1,44 @@
+onde o greatexpectations ataca?
+framework em qualidade de dados, 
+sistema de qualidade para validar dados
+anula a incerteza de entregar algo
+validar o dado
+
+orquestracao dos pipelines?
+airflow
+
+o que é data driven?
+é orientação a dados
+
+descreva em camadas uma data journey?
+bussiness, data sources (multiple places), data engineering (elt), decision maker (tomada de decisao)
+
+o engenheiro entrega tudo o que decision maker precisa?
+normalmente não, pois o decision maker ainda irá aplicar alguns tratamentos para ter uma visão mais apurada
+
+descreva as camadas de um pipeline de data engineering
+data sources, data lake, orchestration and processing, serving, data consumers
+
+como o greatexpectations funciona? quais as camadas?
+setup, connect data, create expectations, validate data 
+
+o que é setup do greatexpectations?
+é a configuração inicial, atraves do cli ou do python
+
+o que é connect data do greatexpectations?
+onde voce conecta no seu backend, onde seu dado estará
+onde também algumas engines de execuções para validar seu dado
+
+o que é create expectations?
+onde voce cria as expectativas, onde voce cria a suite de validações ex. suite para validar cidades ou uma suite para validar datas
+
+o que é suite?
+suite é um conjunto de expectativas, voce consegue chamar essas suites no seu dataset 
+
+o que é checkpoints?
+onde ele roda a suite com as expectativas e grava essa informação, para que ele utilize isso como um timeline
+
+
+o que é validate data?
+onde voce tem as validações e checkpoints da timeline do seu dado
+
