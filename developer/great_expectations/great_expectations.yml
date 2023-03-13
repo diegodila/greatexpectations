@@ -15,30 +15,17 @@ config_version: 3.0
 # add a new datasource. Read more at https://docs.greatexpectations.io/docs/guides/connecting_to_your_data/connect_to_data_overview
 datasources:
   example_datasource:
+    module_name: great_expectations.datasource
     data_connectors:
       default_runtime_data_connector_name:
+        module_name: great_expectations.datasource.data_connector
+        class_name: RuntimeDataConnector
         batch_identifiers:
           - default_identifier_name
-        module_name: great_expectations.datasource.data_connector
-        class_name: RuntimeDataConnector
-        name: default_runtime_data_connector_name
+    class_name: Datasource
     execution_engine:
-      module_name: great_expectations.execution_engine
       class_name: PandasExecutionEngine
-    module_name: great_expectations.datasource
-    class_name: Datasource
-  my_spark_dataframe:
-    data_connectors:
-      default_runtime_data_connector_name:
-        batch_identifiers:
-          - batch_id
-        module_name: great_expectations.datasource.data_connector
-        class_name: RuntimeDataConnector
-    execution_engine:
       module_name: great_expectations.execution_engine
-      class_name: SparkDFExecutionEngine
-    module_name: great_expectations.datasource
-    class_name: Datasource
 config_variables_file_path: uncommitted/config_variables.yml
 
 # The plugins_directory will be added to your python path for custom modules
@@ -101,10 +88,10 @@ data_docs_sites:
       class_name: DefaultSiteIndexBuilder
 
 anonymous_usage_statistics:
+  data_context_id: c5e98a6e-c137-46d0-bb72-122b624b5e61
   enabled: true
-  data_context_id: 6ae12a2c-f002-4346-ba12-86a316239006
-notebooks:
 include_rendered_content:
   expectation_validation_result: false
-  expectation_suite: false
   globally: false
+  expectation_suite: false
+notebooks:
